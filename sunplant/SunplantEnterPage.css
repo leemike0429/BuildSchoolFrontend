@@ -20,16 +20,46 @@
             width: 25%;
             padding-left: 10px;
             padding-top:12px;
+            position: relative;
+            margin-left: 20px;
 
           }
           .Nav a{
             text-decoration: none;
-            font-size: 14px;
-            font-weight: 550;
+            font-size: 20px;
+            font-weight:400;
             color: black;  
             margin: 10px;
             font-family:'Poppins', sans-serif;
             
+          }
+          .FeaturedNew
+          {
+            width: 60px;
+            position: absolute;
+            top: 18px;
+            left: 250px;
+            background-color:lightskyblue;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            padding: 2px;
+            text-align: center; 
+            font-family: 'Poppins', sans-serif;
+          }
+          .ElementNew
+          {
+            width: 60px;
+            position: absolute;
+            top: 18px;
+            left: 450px;
+            background-color:lightskyblue;
+            color: white;
+            font-weight: 600;
+            font-size: 16px;
+            padding: 2px;
+            text-align: center; 
+            font-family: 'Poppins', sans-serif;
           }
           .Nav a:hover{
             color: #28a745;
@@ -106,28 +136,29 @@
             display: flex;
             width: 100%;
             color: black;
-            font-size: 60px;
-            padding-left: 150px;
+            font-size: 70px;
+            padding-left: 180px;
             padding-top: 150px;
             box-sizing: border-box;
-            line-height: 80px;
+            line-height: 90px;
             font-family:'Poppins', sans-serif;
           }
           .Slogan p{
-            padding-left:150px ;
-            font-size: 20px;
+            padding-left:180px ;
+            font-size: 30px;
             padding-top: 10px;
             font-family:'Poppins', sans-serif;
           }
           .Slogan button
           {
-            width: 180px;
-            height: 40px;
+            width: 220px;
+            height:60px;
+            border-radius:3%;
             text-align: center;
             background-color: black;
             color: white;
             letter-spacing: 2px;
-            margin-left: 150px;
+            margin-left: 180px;
             margin-top: 30px;
             border: 0;
           }
@@ -165,7 +196,7 @@
             
           }
           .Banner img{
-            width: 100%;
+            width: 80%;
           }
           .BenifitMainTitle
           {
@@ -173,7 +204,7 @@
             line-height: 40px;
             text-align: center;
             font-size: 32px;
-            margin: 40px;
+            margin: 80px;
             font-weight: bolder;
             font-family:"Poppins", sans-serif;
           }
@@ -277,6 +308,54 @@
           .Commodity img
           {
             width:100%;
+          }
+          .B
+          {
+            position: relative;
+            
+          }
+          .C{
+            position: relative;
+          }
+          .E{
+            position: relative;
+          }
+          .G{
+            position: relative;
+          }
+          .H{
+            position: relative;
+          }
+          .Commodity figure
+          {
+            width: 50px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            padding-left: 10px;
+            position: absolute;
+            top:0;
+            right: 0;
+            background-color: #518432;
+            color: white;
+            border-radius: 50% 0;
+            font-size: 14px;
+            font-weight: 400;
+          }
+          .Commodity h5
+          {
+            width: 80px;
+            height: 20px;
+            top:40px;
+            left: 0px;
+            background-color: #518432;
+            color: white;
+            font-size: 16px;
+            font-weight:400;
+            position: absolute;
+            align-items: center;
+            display: flex;
+            padding: 5px;
           }
           .Video
           {
