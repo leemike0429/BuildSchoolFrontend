@@ -51,6 +51,10 @@
             width: 40%;
             margin: auto;
           }
+          .Logo img:hover
+          {
+            cursor: pointer;
+          }
           .Icon
           {
             text-align: right;
@@ -127,6 +131,7 @@
             margin-top: 30px;
             border: 0;
           }
+         
           .MiddleTitle
           {
             text-align: center;
@@ -143,7 +148,7 @@
           }
           .Slogan button:hover
           {
-            
+            cursor: pointer;
             box-sizing: border-box;
             background-color:lightskyblue;
           }
@@ -377,17 +382,20 @@
             background-color:rgb(241, 241, 241);
             padding: 50px;
             box-sizing: border-box;
+            
            }
           .Footer img{
             display: block;
             margin: auto;
             width: 15%;
+            
           }
 
           .About
           {
             margin: 20px 300px;
             display: flex;
+            
           }
           
           .About p
@@ -400,7 +408,12 @@
             letter-spacing: 2px;
             font-family:'Poppins', sans-serif;
             }
- 
+            .About a
+            {
+                text-decoration: none;
+                color: black;
+            }
+            
           .Line
           {
             height: 1.1px;
