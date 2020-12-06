@@ -12,7 +12,8 @@
             top: 0px;
             width: 100%;
             display: flex; 
-            background-color: white;          
+            background-color: white; 
+            z-index: 2;         
           }
 
           .Nav{
@@ -26,7 +27,7 @@
           }
           .Nav a{
             text-decoration: none;
-            font-size: 20px;
+            font-size: 16px;
             font-weight:400;
             color: black;  
             margin: 10px;
@@ -38,7 +39,7 @@
             width: 60px;
             position: absolute;
             top: 18px;
-            left: 250px;
+            left: 200px;
             background-color:lightskyblue;
             color: white;
             font-weight: bold;
@@ -52,7 +53,7 @@
             width: 60px;
             position: absolute;
             top: 18px;
-            left: 450px;
+            left: 360px;
             background-color:lightskyblue;
             color: white;
             font-weight: 600;
@@ -136,16 +137,16 @@
             display: flex;
             width: 100%;
             color: black;
-            font-size: 70px;
-            padding-left: 180px;
+            font-size: 60px;
+            padding-left: 150px;
             padding-top: 150px;
             box-sizing: border-box;
             line-height: 90px;
             font-family:'Poppins', sans-serif;
           }
           .Slogan p{
-            padding-left:180px ;
-            font-size: 30px;
+            padding-left:150px ;
+            font-size: 20px;
             padding-top: 10px;
             font-family:'Poppins', sans-serif;
           }
@@ -158,7 +159,7 @@
             background-color: black;
             color: white;
             letter-spacing: 2px;
-            margin-left: 180px;
+            margin-left: 150px;
             margin-top: 30px;
             border: 0;
           }
