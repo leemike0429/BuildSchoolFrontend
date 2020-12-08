@@ -1,0 +1,514 @@
+body{
+    font-family: 'Poppins', sans-serif;
+}
+.EnterPage
+{
+    width: 100%;
+    
+    background:url(/sunplant/picture/asset\ 7.png)
+}
+.Header
+{
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    position: fixed;
+    background-color: white;
+    z-index: 2;
+
+}
+.NavList
+{
+    width: 40%;
+    margin-top:20px;
+}
+.NavList ul
+{
+    width: 90%;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+li a{
+    font-size: 15px;
+    color: black;
+    text-decoration: none;
+    font-weight: bolder;   
+}
+li a:hover
+{
+    color:#518432 ;
+}
+.NavList span
+{
+    display: block;
+    width: 50px;
+    height: 20px;
+    background-color: lightskyblue;
+    color: white;
+    font-weight: bolder;
+    line-height: 20px;
+    text-align: center;
+    position: absolute;
+    bottom:120%;
+    left: 30px;
+    font-size: 12px;
+}
+.NewTag
+{
+    position: relative;
+}
+
+.Triangle
+{
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: 10px;
+    border-left:2px solid lightskyblue ;
+    border-bottom:2px solid transparent ;
+    border-top:2px solid lightskyblue;
+    border-right:2px solid transparent ;
+}
+.Logo
+{
+    width: 20%;
+    box-sizing: border-box;
+}
+.Logo a
+{
+    margin-left: 50px;
+    
+}
+.Logo img
+{
+    width: 60%;
+
+}
+.Logo h1
+{
+    color:white;
+    opacity:0;
+}
+.ShopList
+{
+    width: 40%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+.ShopIcon
+{
+    width: 6%;
+    display: flex;
+    flex-direction: row;  
+    align-items: center;
+    padding-left: 25px;
+}
+.ShopIcon img
+{
+    width: 80%;
+}
+.Banner
+{
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    align-items: center;
+}
+.Banner .Container
+{
+    margin-top: 80px;
+}
+.Info .Txt
+{
+    padding-left: 150px;
+    padding-top: 100px;
+    width: 100%;
+}
+.Info
+{
+    width: 50%;
+    text-align: center;
+    text-align: left;
+    padding-bottom: 90px;
+    box-sizing: border-box;
+}
+.Banner .Txt h2
+{
+    font-size: 50px;
+    line-height: 80px;
+  
+
+}
+.Banner .Txt p
+{
+ 
+    font-size: 25px;
+    margin-bottom: 30px;
+}
+.Txt button
+{
+    
+    background-color: black;
+    color: white;
+    letter-spacing: 2px;
+    width: 180px;
+    height: 50px;
+    border: 0;
+}
+.Txt button:hover
+{
+    background-color:lightskyblue;
+    cursor: pointer;
+}
+.Banner .Pic
+{
+    width: 50%;
+    
+}
+.Pic img
+{
+    width: 100%;
+} 
+.BenefitFull
+{
+    width: 100%;
+    box-sizing: border-box;
+
+}
+.Container
+{
+    width: 1200px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.MainTitle h2
+{
+    padding-top: 75px;
+    margin: auto;
+    width: 100%;
+    font-size: 32px;
+    text-align: center;
+    font-weight: bold;
+    color: #518432;
+    line-height: 50px;
+
+
+}
+.MainTitle p{
+    font-size:14px ;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    color: gray;
+    font-style: italic;
+    line-height: 20px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+.ListGroup
+{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+
+    
+}
+.ListItem
+{
+    width: 33.333%;
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    
+}
+.ListItem .Item
+{
+    width: 100%;
+    padding-top: 20px;
+}
+.ListItem h3
+{
+    font-size: 18px;
+    color:black ;
+    font-weight: bold;
+    margin: 10px 0px;
+    
+}
+.ListItem p
+{
+    font-size: 10px;
+    color:gray;
+    
+}
+.ListItem:nth-child(1) *
+{
+    text-align: right;
+}
+.ListItem:nth-child(2) *
+{
+    text-align: left;
+}
+
+.ListItem:nth-child(1) 
+{
+    justify-content: flex-end;
+}
+.ListItem:nth-child(2)
+{
+    justify-content: flex-start;
+    
+}
+
+.ListItemPic
+{
+    width: 33.333%;
+    margin: auto;
+}
+.ListItemPic img{
+width: 100%;
+}
+
+.ListGroup.Product .ListItem 
+{
+    width: 31%;
+    box-sizing: border-box;
+    padding-bottom: 30px;
+
+}
+.ListGroup.Product .ListItem.ListItem img:hover
+{
+    opacity: 0.5;
+    cursor: pointer;
+
+}
+.ListItem img
+{
+    width: 100%;
+
+}
+
+.ListGroup.Product a{
+    text-decoration: none;
+    color: black;
+}
+.ListGroup.Product h3
+{
+    text-align: center;
+    margin: 10px auto;
+    color: black;
+    width: 100%;
+    font-size: 15px;
+}
+.ListGroup.Product p{
+    margin: auto;
+    font-size: 16px;
+    color: black;
+    font-weight: bolder;
+}
+.ListGroup.Product .ListItem
+{
+    position: relative;
+    margin: auto;
+}
+.ListItem .SaleTag
+{
+    position: absolute;
+    background-color: #518432;
+    width: 50px;
+    height: 30px;
+    font-size: 12px;
+    text-align: center;
+    color: white;
+    right: 0;
+    top:0;
+    line-height: 30px;
+    border-radius: 50% 0;
+}
+.ListItem h4
+{
+    position: absolute;
+    font-size: 14px;
+    bottom:32px;
+    left:90px;
+    text-decoration: line-through;
+}
+.SoldOut
+{
+    position: absolute;
+    background-color: #518432;
+    width: 90px;
+    height: 20px;
+    top:30px;
+    color: white;
+    line-height: 20px;
+    text-align: center;
+}
+.VideoFull
+{
+    width: 100%;
+    background: url(./picture/asset\ 43.png);
+}
+
+.Txt{
+    width: 50%;
+    box-sizing: border-box;
+    
+
+}
+.TxtGroup
+{
+    width: 500px;
+    padding-left: 100px;
+}
+.VideoFull .Container .Txt h2
+{
+    font-size: 36px;
+    color:  #518432;
+    margin-top: 200px;
+    margin-bottom: 30px;
+    font-weight: bolder;
+
+}
+.Firm
+{
+    width: 50%;
+    box-sizing: border-box;
+}
+.Firm img
+{
+width: 100%;
+margin: 100px auto;
+}
+.VideoFull .Container
+{
+    margin: 100px auto ;
+}
+.VideoFull .Container .Txt p
+{
+    font-size: 16px;
+    color:  black;
+    margin-bottom: 30px;
+    line-height: 20px;
+}
+.VideoFull .Container .Txt button
+{
+    color: black;
+    background-color: transparent;
+    border: 1px solid black;
+}
+
+.VideoFull .Container .Txt button:hover
+{
+    background-color:  #518432;
+    color: white;
+}
+
+.InstagramFull .Container .ListGroup
+{
+    padding-bottom: 40px;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+}
+.InstagramFull .Container .ListGroup .ListItem
+{
+    box-sizing: border-box;
+    margin: 20px auto;
+}
+.InstagramFull .Container .ListGroup .ListItem:hover
+{
+    filter: brightness(0.4);
+}
+.InstagramFull h3{
+font-size: 30px;
+letter-spacing: 2px;
+text-align: center;
+font-weight: bolder;
+
+}
+.InstagramFull .MainTitle
+{
+    width: 100%;
+    margin: auto;
+}
+.InstagramFull .MainTitle img{
+
+display: block;
+margin:30px auto;
+
+}
+.InstagramFull .Container .ListItem
+{
+    margin-top: 80px;
+    width:23%;   
+}
+.Footer .Container
+{
+    padding-top: 60px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+.Footer
+{
+    width: 100%;
+    background-color:rgb(245, 245, 245);
+}
+.Footer .Logo img{
+    display: block;
+    margin: auto;
+    width: 60%;
+}
+
+.About
+{
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+.About a{
+    text-decoration: none;
+    margin: 32px;
+    color: black;
+    font-weight: 600;
+    letter-spacing: 2px;
+    font-size: 12px;
+}
+.Footer .Container .Icon ul
+{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+
+}
+.Icon a{
+    display: block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    text-align: center;
+    line-height:50px ;
+    font-size: 16px;
+    margin: 10px;
+    background-color: black;
+    color: white;
+}
+.Icon a:hover
+{
+    background-color: #518432;
+}
+.Footer p{
+    margin-bottom: 40px;
+    color: rgb(177, 177, 177);
+    font-size: 14px;
+}
