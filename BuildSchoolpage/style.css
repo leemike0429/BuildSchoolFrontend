@@ -386,7 +386,7 @@ header {
 }
 
 .header-menu a:hover {
-  color: #000;
+  color: lightseagreen;
 }
 
 nav {
@@ -505,7 +505,7 @@ nav .menu {
   width: 90%;
   margin: 0 auto;
   padding: 0px 30px;
-  background-color: #677bff;
+  background-color: lightseagreen;
 }
 
 .story .story-area {
@@ -577,7 +577,7 @@ nav .menu {
 
 .sign-form a {
   display: block;
-  background-color: #6f6dfd;
+  background-color: lightseagreen;
   padding: 10px 20px;
   font-size: 16px;
   color: white;
@@ -636,10 +636,11 @@ footer ul {
 }
 
 footer ul a::before {
-  content: '☛  ';
+  content: '☛';
 }
 
 footer ul a {
+  font-size: 18px;
   display: block;
   padding: 8px 10px;
   color: white;
@@ -647,7 +648,8 @@ footer ul a {
 }
 
 footer ul a:hover {
-  color: #000;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
 }
 
 footer .logo {

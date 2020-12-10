@@ -39,7 +39,7 @@ header {
         color: #838383;
 
         &:hover {
-            color: #000;
+            color: lightseagreen;
         }
     }
 
@@ -139,7 +139,7 @@ nav {
     width: 90%;
     margin:0 auto;
     padding: 0px 30px;
-    background-color: #677bff;
+    background-color: lightseagreen;
     .story-area
     {
         color: #fff;
@@ -197,7 +197,7 @@ nav {
     }
     a{
         display: block;
-        background-color: #6f6dfd;
+        background-color: lightseagreen;
         padding: 10px 20px;
         font-size: 16px;
         color: white;
@@ -243,15 +243,16 @@ footer{
         display: flex;
         justify-content: space-around;
         a::before{
-            content: '☛  ';
+            content: '☛';
         }
         a {
+            font-size: 18px;
             display: block;
             padding: 8px 10px;
             color:white;
             font-weight: bolder;
             &:hover {
-                color: #000;
+                transform: scale(1.2);
             }
         }
     }
