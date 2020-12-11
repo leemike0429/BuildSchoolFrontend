@@ -1,0 +1,107 @@
+.wrap
+{
+    width: 1000px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 100px auto;
+    align-content: center;
+
+}
+
+.container
+        {
+            width:300px;
+            height: 300px;
+            border: 3px solid rgb(133, 97, 51);
+            overflow: hidden;
+            position: relative;
+            margin: auto;
+            box-sizing: border-box;
+            color: white;
+            
+        }
+
+        .pic
+        {
+            width:285px;
+            height: 285px;
+            margin: 4px auto;
+            align-items: center;
+            background-color: burlywood;
+            transform: translateY(0);
+            z-index: 1;
+            box-sizing: border-box;
+            text-align: center;
+            display: flex;
+            flex-direction: column-reverse;
+        }
+        .pic img
+        {
+            position: absolute;
+            top:30px;
+            left: 30px;
+            display: block;
+            width: 80%;
+            margin: auto;
+            align-content: center;
+            justify-content: center;
+            
+        }
+        
+
+        .info
+        {
+            width:285px;
+            height: 220px;
+            background-color:rgba(0,0,0,0.8);
+            opacity: 0.8;
+            position: absolute;
+            transform: translateY(270px);
+            left:4.5px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding-bottom: 20px;
+            transition: .3s cubic-bezier(0, 0.44, 0, 0.91);
+            
+        }
+
+        .container:hover .info
+        {
+            transform:translateY(-265px)
+            
+        }
+        .container:hover .pic img
+        {
+            opacity: 0.7;
+        }
+        .container:hover .pic .title
+        {
+            color: transparent;
+        }
+        h2
+        {
+            font-size: 20px; 
+            font-weight: bold;
+            margin-bottom: 10px;
+            
+        }
+        h3{
+            font-size: 14px;
+            font-weight: bold;
+        }
+        p{
+            font-size: 12px;
+            padding-top: 15px;
+            letter-spacing: 2px;
+        }
+        .title
+        {
+            display: block;
+            font-size: 12px;
+            color: black;
+            font-weight: bold;
+            margin-bottom:5px;  
+        }
+        
