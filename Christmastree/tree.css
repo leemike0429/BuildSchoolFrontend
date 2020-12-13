@@ -33,6 +33,7 @@ h1
     border-right:30px solid transparent;
     z-index: 3;
     position: absolute;
+    animation: flash2 1.5s infinite;
     
 }
 .star1
@@ -201,6 +202,20 @@ left: 180px;
 {
     0%{border: 1px solid white;}
     100%{border:5px solid white}
+}
+@keyframes flash2
+{
+    0%{
+        border-bottom: 50px solid white;
+        border-top: 0px;
+        border-left:30px solid transparent;
+        border-right:30px solid transparent;
+    }
+    100%{    
+        border-bottom: 50px solid yellow;
+        border-top: 0px;
+        border-left:30px solid transparent;
+        border-right:30px solid transparent;}
 }
 .top1
 {
