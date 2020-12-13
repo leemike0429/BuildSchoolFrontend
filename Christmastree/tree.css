@@ -1,7 +1,7 @@
 .container
 {
     width: 1000px;
-    height: 1000px;
+    height: 1100px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -10,6 +10,18 @@
     background-color: sandybrown;
     position: relative;
     z-index: -2;
+    word-spacing: 130px;
+    
+}
+h1
+{
+    z-index: 200;
+    position: absolute;
+    top:20px;
+    font-size: 140px;
+    color: white;
+    letter-spacing: 8px;
+    font-family: 'Dancing Script', cursive;
 }
 
 .star{
@@ -21,15 +33,16 @@
     border-right:30px solid transparent;
     z-index: 3;
     position: absolute;
+    
 }
 .star1
 {
-    top: 90px;
+    top: 140px;
     left: 430px; 
 }
 .star2
 {
-    top: 110px;
+    top: 160px;
     left: 430px; 
     transform: rotate(180deg);
 }
@@ -48,7 +61,7 @@
 border-bottom:160px solid green;
 border-left:120px solid transparent;
 border-right:120px solid transparent;
-top: 140px;
+top: 190px;
 left: 340px;
 }
 
@@ -57,7 +70,7 @@ left: 340px;
 border-bottom: 320px solid green;
 border-left:200px solid transparent;
 border-right:200px solid transparent;
-top: 190px;
+top: 240px;
 left: 260px;
 }
 
@@ -66,7 +79,7 @@ left: 260px;
 border-bottom: 400px solid green;
 border-left:280px solid transparent;
 border-right:280px solid transparent;
-top: 330px;
+top: 380px;
 left: 180px;
 }
 .retangle
@@ -75,7 +88,7 @@ left: 180px;
     height: 300px;
     background-color: saddlebrown;
     position: absolute;
-    top:650px;
+    top:700px;
     left:410px ;
     z-index: -1;
 }
@@ -89,7 +102,7 @@ left: 180px;
     border-right:50px solid transparent;
     border-radius: 50%;
     position: absolute;
-    top: 150px;
+    top: 200px;
     left: 205px;
     z-index: 100;
 }
@@ -103,7 +116,7 @@ left: 180px;
     border-right:50px solid transparent;
     border-radius: 50%;
     position: absolute;
-    top: 0px;
+    top: 50px;
     left: 255px;
     z-index: 100;
 }
@@ -117,7 +130,7 @@ left: 180px;
     border-right:50px solid transparent;
     border-radius: 50%;
     position: absolute;
-    top: 30px;
+    top: 80px;
     left: 335px;
     z-index: 100;
 }
@@ -131,7 +144,7 @@ left: 180px;
     border-right:20px solid transparent;
     border-radius: 50%;
     position: absolute;
-    top: 175px;
+    top: 225px;
     left: 235px;
     z-index: 100;
 }
@@ -145,7 +158,7 @@ left: 180px;
     border-right:20px solid transparent;
     border-radius: 50%;
     position: absolute;
-    top: 25px;
+    top: 75px;
     left: 290px;
     z-index: 100;
 }
@@ -159,7 +172,7 @@ left: 180px;
     border-right:20px solid transparent;
     border-radius: 50%;
     position: absolute;
-    top: 50px;
+    top: 100px;
     left: 370px;
     z-index: 100;
 }
@@ -168,7 +181,6 @@ left: 180px;
     width: 30px;
     height: 30px;
     border-radius: 50%;
-
     z-index: 200;
     position: relative;
 }
