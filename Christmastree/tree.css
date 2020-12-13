@@ -188,19 +188,19 @@ left: 180px;
 .light:nth-child(odd)
 {
     background-color: blue;
-    animation: flash 1s 1.5s infinite;
+    animation: flash 1s  infinite;
     box-sizing: border-box;
 }
 .light:nth-child(even)
 {
     background-color: red;
-    animation: flash 1s 1.5s infinite ;
+    animation: flash 1s  infinite ;
     box-sizing: border-box;
 }
 
 @keyframes flash
 {
-    0%{border: 1px solid white;}
+    0%{border: none;}
     100%{border:5px solid white}
 }
 @keyframes flash2
