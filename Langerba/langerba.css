@@ -390,11 +390,6 @@ footer
     .col-md-11{width:91.666666%;}
     .col-md-12{width:100%;}  
     
-    .container
-    {
-        margin:0 20px;
-        max-width: 1200px;
-    }
     .contact p
     {
         display: none;
@@ -520,11 +515,6 @@ footer
     .col-xl-11{width:91.666666%;}
     .col-xl-12{width:100%;}  
 
-    .container
-    {
-        margin:0 auto;
-        
-    }
     nav .row
     {
         width: 980px;
