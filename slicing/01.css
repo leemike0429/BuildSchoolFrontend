@@ -1,0 +1,134 @@
+.col-1{width:8.333333%;}
+.col-2{width:16.666666%;}
+.col-3{width:25%;}
+.col-4{width:33.333333%;}
+.col-5{width:41.666666%;}
+.col-6{width:50%;}
+.col-7{width:58.333333%;}
+.col-8{width:66.666666%;}
+.col-9{width:75%;}
+.col-10{width:83.333333%;}
+.col-11{width:91.666666%;}
+.col-12{width:100%;}
+
+[class*="col-"]
+{
+    padding: 5px;box-sizing: border-box;
+}
+
+*{
+    color: white;
+}
+body
+{
+    background-color: #2B3238;
+    font-family: "Montserrat", sans-serif;
+}
+
+.container
+{
+    max-width: 1200px;
+    margin: auto;
+}
+.row
+{
+    display: flex;
+    flex-wrap: wrap;
+}
+span
+{
+    color: #1A81FD;
+    letter-spacing: 0.2em;
+    font-size: 12px;
+}
+.wrap
+{
+    padding: 20px 8px;
+}
+h2
+{
+    font-size: 32px;
+    margin: 20px 0;
+    font-family: Montserrat, sans-serif;
+}
+p
+{
+    margin: 10px 0;
+    line-height: 25px;
+    font-size: 14px;
+    
+}
+.item
+{
+    display: flex;
+    align-items: center;
+
+}
+.icon
+{
+    justify-content: center;
+}
+.icon i
+{
+    color: #25EBFF;
+    font-size: 28px;
+
+}
+.txt{
+    margin: 20px 0px 15px 26px;
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+.txt a{
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+}
+.inputbox-gourp
+{
+    display: flex;
+    flex-wrap: wrap;
+    color: white;
+    
+}
+textarea::placeholder
+{
+    color: white;
+    font-family: "Montserrat", sans-serif;
+}
+textarea
+{
+    width: 100%;
+    border: none;
+    background-color: #2B3238;
+    margin: 25px 0;
+    color: white;
+    
+}
+.list
+{
+    border-bottom:1px solid white;
+    width: 100%;
+}
+
+button
+{
+    margin-top: 50px;
+    height: 50px;
+    width: 180px;
+    border-radius: 100px;
+    color: white;
+    background-color: #1A81FD;
+    border: none;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1px;
+
+}
+
+
+.col-md-6{width:50%;}
+
+
+
