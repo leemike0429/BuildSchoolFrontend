@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/Reset.css">
+    <style>
+        body
+        {
+            background:linear-gradient(to top right, red 0%, yellow 100%);
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        .enterpage
+        {
+
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .header{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            padding: 30px 0;
+        }
+
+        h1 {
+            width: 100%;
+            font-size: 40px;
+            font-weight: bolder;
+            text-align: center;
+            color: #FFF;
+            text-shadow: -2px 2px 10px gray;
+
+
+        }
+
+        button {
+            border: none;
+            color: #FFF;
+            background-color: #FF9300;
+            font-size: 20px;
+            font-weight: bolder;
+            position: relative;
+            top:-5px;
+            box-shadow:-1px 5px 2px white;
+            margin:0 20px;
+            width: 150px;
+            height: 50px;
+            box-sizing: border-box;
+            border-radius: 10px;
+            transform: scaleY(5px);
+            transition: 0.5s;
+            
+        }
+        button:hover
+        {
+            cursor: pointer;
+            top:0px;
+            transform: scaleY(0px);
+            box-shadow: -1px 2px 2px white;
+
+        }
+
+        .button-area {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 0 0 40px;
+        }
+        img
+        {
+            border-radius: 50%;
+            background:linear-gradient(to top right, red 0%, yellow 100%);
+            margin: 10px auto;
+            box-shadow: 2px 2px 20px white;
+            border: 2px solid white;
+
+        }
+        img:hover
+        {
+            cursor: pointer;
+        }
+        #container
+        {
+            margin: 10px 20px;
+            width: 80%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="enterpage">
+        <div class="header">
+            <H1>寶可夢圖鑑列表</H1>
+        </div>
+        <div class="button-area">
+            <button onclick='fetchPokemon()'>載入圖鑑</button>
+            <button onclick='fetchPokemon2()'>載入圖鑑</button>
+            <button onclick='resetlist()'>清空圖鑑</button>
+        </div>
+        <div id="container"></div>
+
+    </div>
+
+    <script>
+        var container = document.getElementById("container");
+        window.onload = appendPokemon();
+
+        function appendPokemon() {
+            let img = document.createElement("img");
+            img.setAttribute("src", "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/001.png")
+            container.appendChild(img);
+        }
+
+        function fetchPokemon() {
+
+            let pokemons = "";
+            for (let i = 1; i < 809; i++) {
+                fileName = i.toString().padStart(3, '0');
+                pathFile = `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${fileName}.png`;
+                pokemonImg = `<img src='${pathFile}'>`;
+                pokemons += pokemonImg;
+            }
+            container.innerHTML = pokemons;
+        }
+
+        function fetchPokemon2() {
+
+
+            for (let i = 2; i < 809; i++) {
+                let img = document.createElement("img");
+                fileName = i.toString().padStart(3, '0');
+                pathFile = `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${fileName}.png`;
+                img.src = pathFile;
+                container.appendChild(img);
+            }
+
+
+        }
+
+        function resetlist() {
+
+            container.innerHTML = "";
+            appendPokemon();
+        }
+    </script>
+</body>
+
+</html>
