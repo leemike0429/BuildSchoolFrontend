@@ -1,0 +1,92 @@
+
+body
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    
+}
+.wrap
+{
+    width: 300px;
+    background-color: #5928DC;
+    padding: 60px 15px;
+    font-family: "Montserrat", sans-serif;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    
+}
+
+button
+{
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    width: 200px;
+    height: 50px;
+    border-radius: 25px;
+}
+.tag
+{
+    background-color: #1A81FD;
+    display: block;
+    width: 200px;
+    height: 30px;
+    transform: rotate(45deg);
+    text-align: center;
+    line-height: 30px;
+    position: absolute;
+    top: 15px;
+    right: -70px;
+    letter-spacing: 2px;
+    font-size: 12px;
+}
+i
+{
+    font-size: 40px;
+}
+.button-area
+{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+.fee
+{
+    margin: 20px 0;
+}
+h2
+{
+    font-size: 18px;
+    letter-spacing: 2px;
+    margin-top: 20px;
+}
+p
+{
+    line-height: 30px;
+    font-size: 14px;
+}
+h3{
+    font-size: 42px;
+    position: relative;
+}
+h3 span
+{
+    font-size: 14px;
+}
+.money
+{
+    position: absolute;
+    left: 80px;
+}
+
+
+.icon
+{
+    display: flex;
+    justify-content: center;
+}
