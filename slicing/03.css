@@ -123,6 +123,15 @@ button
     font-weight: bolder;
 
 }
+.advantage .col-12.col-md-4:nth-child(2)
+{
+    background-color: #1A81FD;
+}
+.advantage .col-12.col-md-4:last-child
+{
+    background-color: #117AF8;
+}
+
 @media screen and (min-width: 768px)
 {
     .col-md-1{width:8.333333%;}
@@ -180,14 +189,14 @@ button
     }
     .advantage .col-12.col-md-4:nth-child(2)
     {
-        background-color: #1A81FD;
+        
         left: 435px;
     }
     .advantage .col-12.col-md-4:last-child
     {
-        background-color: #117AF8;
         left: 825px;
     }
+
     .banner
     {
         background:url(http://ld-wp.template-help.com/wordpress_imperion/coworking/wp-content/uploads/2018/11/img3.png);
