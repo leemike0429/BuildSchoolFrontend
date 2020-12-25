@@ -48,48 +48,25 @@
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#">Dashboard</a></li>
-          <li><a href="#">Settings</a></li>
-          <li><a href="#">Profile</a></li>
-          <li><a href="#">Help</a></li>
+          <li><a href="#">設定</a></li>
+          <li><a href="#">個人資料</a></li>
+          <li><a href="#">幫助</a></li>
         </ul>
-        <form class="navbar-form navbar-right">
-          <input type="text" class="form-control" placeholder="Search...">
-        </form>
       </div>
     </div>
   </nav>
 
   <div class="container-fluid">
     <div class="row">
-      <div class="col-sm-3 col-md-2 sidebar">
-        <ul class="nav nav-sidebar">
-          <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
-          <li><a href="#">Reports</a></li>
-          <li><a href="#">Analytics</a></li>
-          <li><a href="#">Export</a></li>
-        </ul>
-        <ul class="nav nav-sidebar">
-          <li><a href="">Nav item</a></li>
-          <li><a href="">Nav item again</a></li>
-          <li><a href="">One more nav</a></li>
-          <li><a href="">Another nav item</a></li>
-          <li><a href="">More navigation</a></li>
-        </ul>
-        <ul class="nav nav-sidebar">
-          <li><a href="">Nav item again</a></li>
-          <li><a href="">One more nav</a></li>
-          <li><a href="">Another nav item</a></li>
-        </ul>
-      </div>
-      <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+
+      <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-1 main">
         <div class="container-fluid">
           <div class="row">
             <div class="col-md-12">
               <div class="btn-group btn-group-justified">
                 <a id="start" type="button" class="btn btn-default">開始</a>
                 <a id="restart" type="button" class="btn btn-default">放棄重來</a>
-                <a id="cheat" type="button" class="btn btn-default">看答案</a>
+                <a id="cheat" type="button" class="btn btn-default" disabled="true">看答案</a>
               </div>
               <br>
               <ul id="guessResults" class="list-group">
@@ -126,7 +103,8 @@
               </ul>
               <div class="input-group">
                 <span class="input-group-addon" id="sizing-addon1">猜答案</span>
-                <input id="userGuess" type="text" name="" class="form-control" value="" required="required">
+                <input id="userGuess" type="text" name="" disabled="true" class="form-control" value=""
+                  required="required">
                 <span class="input-group-btn">
                   <a id="guess" type="button" class="btn btn-default">猜!</a>
                 </span>
@@ -150,7 +128,9 @@
   <!--<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>-->
   <script>
     let ans = "";
-    window.onload =clean();
+    let userGuess = document.getElementById("userGuess")
+    let cheat = document.getElementById("cheat")
+    // window.onload =clean();
     function randomAnswer() {
 
       while (ans.length < 4) {
@@ -177,30 +157,23 @@
       let countb = 0;
       let ansarray = ans.split('')
       let inputarray = inputtxt.split('')
-      inputarray=[...new Set(inputarray)];
-      inputarray=inputarray.join('').toString();
-
-      if (inputarray.length != 4 || isNaN(inputtxt)) {
+      inputarray = [...new Set(inputarray)];
+      let boolinputarray = inputarray.map(x => isNaN(x))
+      inputarray = inputarray.join('').toString();
+      if (inputarray.length != 4 || boolinputarray.every(x => x == false) == false) {
         alert("請輸入四位不重複的數字")
         document.getElementById("userGuess").value = "";
-        return;
-      }
-
-      else {
-
-
+      } else {
         for (i = 0; i < 4; i++) {
           if (ansarray[i] == inputarray[i]) {
             counta += 1;
           } else if (ansarray[i] == inputarray[0] || ansarray[i] == inputarray[1] || ansarray[i] == inputarray[2] ||
             ansarray[i] == inputarray[3]) {
-
             countb += 1;
           }
         }
         let span = document.createElement("span")
         let li = document.createElement("li")
-
         if (counta == 4) {
           let abc = `<span class="label label-success">${counta}A${countb}B</span> ${inputtxt}`
           li.innerHTML = abc;
@@ -208,34 +181,43 @@
           let abc = `<span class="label label-danger">${counta}A${countb}B</span> ${inputtxt}`
           li.innerHTML = abc;
         }
-
         li.appendChild(span)
         li.setAttribute("class", "list-group-item")
         ul.appendChild(li)
         document.getElementById("userGuess").value = "";
-
-
-
-        //
       }
-
     }
-
-
     document.getElementById("start").onclick = function (event) {
+      clean()
       ans = "";
+      userGuess.removeAttribute("disabled")
+      cheat.removeAttribute("disabled")
       randomAnswer();
     }
     document.getElementById("restart").onclick = function (event) {
-      ans = "現在沒有答案喔,請按開始";
+      ans = "";
+      userGuess.setAttribute("disabled", true)
+      cheat.setAttribute("disabled", true)
       clean();
-      
+
     }
-    document.getElementById("cheat").onclick = function (event) {
+    document.getElementById("cheat").onclick = function () {
+      if(cheat.hasAttribute("disabled"))
+      {
+        return;
+      }
       lookanwser();
     }
-    document.getElementById("guess").onclick = function (event) {
+    document.getElementById("guess").onclick = function () {
       guess();
+    }
+
+    document.getElementById("userGuess").onkeyup = function()
+    {
+      if(event.keyCode == 13)
+      {
+        guess();
+      }
     }
   </script>
 </body>
