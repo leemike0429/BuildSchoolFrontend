@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <style>
+        .jumbotron {
+            text-align: center;
+        }
+
+        .row {
+            width: 90%;
+            display: flex;
+            flex-wrap: wrap;
+            margin: auto;
+            justify-content: center;
+        }
+
+        .row img {
+            width: 80%;
+            margin-bottom: 5px;
+
+        }
+
+        .card {
+            text-align: center;
+            background-color: transparent;
+            border: 2px solid #456D9A;
+            border-radius: 30%;
+            margin: 10px 15px;
+
+
+        }
+
+        .card:hover {
+            transform: scale(1.1);
+        }
+
+        body {
+            background: #0E2741;
+        }
+
+        h1 {
+            color: white;
+            font-weight: bolder;
+            font-size: 50px;
+            letter-spacing: 20px;
+            padding: 30px 0;
+            text-shadow: 2px 2px darkgray;
+
+        }
+
+        h5 {
+            color: white;
+            margin: 0;
+            font-weight: bolder;
+            font-size: 22px;
+        }
+
+        .button-contol {
+            margin: 0 20px 20px;
+            color: whitesmoke;
+            border: 1px solid whitesmoke;
+            box-shadow: 0px 1px 6px whitesmoke;
+            border-radius: 50px;
+            background-color: transparent;
+            width: 160px;
+            height: 40px;
+            font-weight: bolder;
+        }
+
+        .button-contol:hover {
+            box-shadow: 0px 2px 10px yellow;
+
+        }
+ 
+        .card-body a {
+            height: 70px;
+            width: 60px;
+            background-color: transparent;
+            border: none;
+            display: flex;
+            justify-content: flex-start;
+            position: absolute;
+            left: 25px;
+            bottom: -5px;
+        }
+
+        .card-body a img {
+            width: 50%;
+            margin: auto;
+            display: block;
+            border-radius: 100%;
+            /* background-color: #2382e7; */
+        }
+
+        .card-body a img:hover {
+            box-shadow: 0px 2px 10px yellow;
+        }
+
+        .card {
+            position: relative;
+        }
+    </style>
+    <title>Hello, world!</title>
+</head>
+
+<body>
+    <div class='container-fluid'>
+        <div class='jumbotron'>
+            <h1>寶可夢圖鑑</h1>
+            <button class="button-contol" id="AddCard">加入一張卡片</button>
+            <button class="button-contol" id="ReduceCard">移除一張卡片</button>
+            <button class="button-contol" id="AddAllCard">載入所有卡片</button>
+            <button class="button-contol" id="ClearAllCard">清除所有卡片</button>
+        </div>
+        <div class='row'>
+        </div>
+    </div>
+    <template id="PokemonCard">
+        <div class="card" style="width: 15rem;">
+            <div class="card-body">
+                <h5 id="card-title"></h5>
+                <img src="" class="card-img-top">
+                <p class="card-text"></p>
+                <a href="#" id="ball">
+                    <img src="/Pokemoncard/pokeball.png" alt="">
+                </a>
+                <span id="type"></span>
+                <!-- <span id="type"></span> -->
+            </div>
+        </div>
+    </template>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 id="pokemonname-title"></h4>
+                </div>
+                <div class="modal-body">
+                    <p id="description" class="text-primary"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">關閉</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // let id, Name, HP, Attack, Defense, Sp_Attack, Sp_Defense, Speed, img, pokemon;
+        let i = 0;
+        let row, card, cloneContent;
+        window.onload = () => getPokemonJSON();
+        let pokemonArray = [];
+        let pokemonArrayNew = [];
+        document.getElementById("AddCard").addEventListener("click", function () {
+            CreateCard(i);
+            i++;
+        })
+        document.getElementById("ReduceCard").addEventListener("click", function () {
+            i--;
+            ReduceCard();
+
+
+        })
+
+        document.getElementById("AddAllCard").addEventListener("click", function () {
+
+            for (i = 0; i <= 808; i++) {
+                CreateCard(i);
+            }
+        })
+
+        document.getElementById("ClearAllCard").addEventListener("click", function () {
+            Reset();
+            i = 0;
+        })
+
+        function getPokemonJSON() {
+            let xhr = new XMLHttpRequest();
+            xhr.onload = function () {
+                pokemonArray = JSON.parse(this.responseText);
+                TransformData(pokemonArray);
+
+            }
+            xhr.open("GET", "https://raw.githubusercontent.com/apprunner/pokemon.json/master/pokedex.json");
+            xhr.send();
+        }
+
+        function TransformData(dataArray) {
+            dataArray.forEach(item => {
+                let id = item.id.toString().padStart(3, "0");
+                let name = item.name.chinese;
+                let hp = item.base.HP;
+                let attack = item.base.Attack;
+                let defense = item.base.Defense;
+                let sp_attack = item.base["Sp. Attack"];
+                let sp_defense = item.base["Sp. Defense"];
+                let speed = item.base.Speed;
+                // let type =item.tpye
+                let img = `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${id}.png`
+                let pokemon = {
+                    Id: id,
+                    Name: name,
+                    Hp: hp,
+                    Attack: attack,
+                    Defense: defense,
+                    Sp_Attack: sp_attack,
+                    Sp_Defense: sp_defense,
+                    Img: img,
+                    // Type:type
+                };
+                pokemonArrayNew.push(pokemon);
+            });
+        }
+
+        function CreateCard(num) {
+            row = document.querySelector(".row");
+            card = document.getElementById('PokemonCard');
+            cloneContent = card.content.cloneNode(true);
+            cloneContent.getElementById("card-title").innerText = pokemonArrayNew[num].Name
+            cloneContent.querySelector('img').src = pokemonArrayNew[num].Img
+            // cloneContent.getElementById("type").innerText = pokemonArrayNew[num].Type
+            //modal
+            cloneContent.querySelector('#ball').addEventListener('click', function () {
+                this.setAttribute("data-bs-toggle", "modal");
+                this.setAttribute("data-bs-target", "#exampleModal");
+                let modal = document.querySelector('#exampleModal');
+                modal.querySelector("#pokemonname-title").innerText = pokemonArrayNew[num].Name;
+                // console.log(pokemonArrayNew[num])
+                modal.querySelector('#description').innerText =
+                    `ID:${pokemonArrayNew[num].Id}
+                Name:${pokemonArrayNew[num].Name}
+                HP:${pokemonArrayNew[num].Hp}
+                Attack:${pokemonArrayNew[num].Attack}
+                Defense:${pokemonArrayNew[num].Defense}
+                Sp_Attacl:${pokemonArrayNew[num].Sp_Attack}
+                Sp_Defense:${pokemonArrayNew[num].Sp_Defense}`
+
+            })
+            row.append(cloneContent);
+        };
+
+        function ReduceCard() {
+            
+            row = document.querySelector(".row");
+            card = document.getElementById('card');
+            row.removeChild(card)
+
+
+        }
+
+        function Reset() {
+            row.innerText = "";
+        }
+    </script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">
+    </script>
+
+</body>
+
+</html>
