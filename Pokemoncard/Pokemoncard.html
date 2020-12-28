@@ -199,9 +199,12 @@
             i++;
         })
         document.getElementById("ReduceCard").addEventListener("click", function () {
-            i--;
-            ReduceCard();
-
+            
+            if(i>0)
+            {
+                i--;
+                ReduceCard();
+            }
 
         })
 
@@ -282,13 +285,15 @@
                 技能防禦力:${pokemonArrayNew[num].Sp_Defense}`
 
             })
+            
             row.append(cloneContent);
+            
         };
 
         function ReduceCard() {
             
             row = document.querySelector(".row");
-            card = document.getElementById('card');
+            card = document.querySelector('.card:last-child');           
             row.removeChild(card)
 
 
