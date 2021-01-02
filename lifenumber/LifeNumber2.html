@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生命靈數小測驗</title>
+    <style>
+        body {
+            background: url(/lifenumber/bg\ \(2\).png);
+            background-color: black;
+            background-size: cover;
+            background-repeat: no-repeat;
+            letter-spacing: 5px;
+            padding: 20px;
+
+        }
+        h1
+        {
+            font-size: 48px;
+            color: white;
+            text-shadow: 2px 2px 10px gold;
+            letter-spacing: 20px;
+        }
+        #analysis
+        {
+            border: none;
+            color: white;
+            text-align: center;
+            letter-spacing: 1px;
+            vertical-align:middle;
+            border-radius: 4px;
+        }
+        #analysis:hover
+        {
+            transform: scale(2);
+            cursor: pointer;
+            
+        }
+        p
+        {
+            font-size: 20px;
+            color: white;
+            font-weight: bold;
+            line-height: 30px;
+        }
+        p span
+        {
+            font-size: 16px;
+            color: gold;
+            font-weight: bold;
+            margin-left: 20px;
+
+        }
+        .input-area{
+            margin-top: 80px;
+            font-weight: 600;
+        }
+
+    </style>
+</head>
+
+<body>
+    
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="navbar" href="#">生命靈數測驗</h1>
+        </div>
+    </nav>
+    <section class="input-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="input">
+                        <input id="userInput" type="date" value="2000-01-01">
+                        <a id="analysis" type="button" class="btn btn-default">分析
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="showinfo">
+                    <p class="title">您的生命靈數:<br><span id="livenumber"></span></p>
+                    <p class="title">您的星座:<br><span id="star"></span></p>
+                    <p class="title">小故事:<br><span id="story"></span></p>
+                    <p ></p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="scripts/bootstrap.min.js"></script>
+
+    <script>
+        let txt;
+        let Constellation = "";
+        let livenumber = document.getElementById("livenumber")
+        let star = document.getElementById("star")
+        let story = document.getElementById("story")
+        let Constellationarrayen = ["Capricorn", "Aquarius", "Pisces", "Aries", "Taurus", "Gemini", "Cancer", "Leo",
+            "Virgo", "Libra", "Scorpio", "Sagittarius", "Capricorn"
+        ]
+        let Constellationarraych = ["魔羯", "水瓶", "雙魚", "牡羊", "金牛", "雙子", "巨蟹", "獅子", "處女", "天秤", "天蠍", "射手", "魔羯"]
+
+
+        document.getElementById("analysis").onclick = function () {
+            let inputdate = document.getElementById("userInput").value
+            let Datevalue = new Date(inputdate)
+            let month = Datevalue.getMonth() + 1
+            let day = Datevalue.getDate()
+            countNumber();
+            countConstellation(month, day)
+            livenumber.innerText = `${txt}`
+            abc = Constellationarraych.indexOf(Constellation)
+            star.innerText = `${Constellation}座 ${Constellationarrayen[abc]}`
+            getStory()
+
+        }
+
+        function getStory() {
+            $.ajax({
+                url: `http://buildschoolapi.azurewebsites.net/api/number/GetNumerology?constellation=${Constellationarrayen[abc]}&number=${txt}`, // url位置
+                type: 'get', // post/get
+                data: {}, // 輸入的資料
+                error: function (xhr) {}, // 錯誤後執行的函數
+                success: function (response) {
+                    story.innerText = response
+                } // 成功後要執行的函數
+            });
+        }
+
+        function countConstellation(month, day) {
+            let s = "魔羯水瓶雙魚牡羊金牛雙子巨蟹獅子處女天秤天蠍射手魔羯";
+            let arr = [20, 19, 21, 21, 21, 22, 23, 23, 23, 23, 22, 22];
+            Constellation = s.substr(month * 2 - (day < arr[month - 1] ? 2 : 0), 2);
+        }
+
+        function countNumber() {
+            let inputdate = document.getElementById("userInput").value
+            let inputArray = inputdate.split('');
+            inputArray = inputArray.filter(function (item) {
+                return item != "-"
+            })
+
+            while (inputArray.length > 1) {
+                number = inputArray.map(x => Number(x)).reduce(function (accumulator, currentValue) {
+                    return accumulator + currentValue
+                })
+                inputArray = Array.from(number.toString())
+            }
+            txt = inputArray[0]
+
+
+        }
+
+        
+    </script>
+
+</body>
+
+</html>
