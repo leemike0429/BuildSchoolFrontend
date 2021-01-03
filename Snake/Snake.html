@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>(Demo)貪食蛇</title>
+    <style>
+        #left,
+        #Right {
+            width: 100px;
+            height: 60px;
+        }
+
+        .row {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .contorl {
+            display: flex;
+            justify-content: space-around;
+            padding: 0 40px;
+        }
+
+        .canvas {
+            margin: 10px;
+        }
+
+        .txt {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        #Score_id {
+            font-size: 30px;
+        }
+
+        .container {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="row">
+        <div class="container">
+            <section class="txt">
+                <span>現在分數:<span id="Score_id">0</span></span>
+                <button id="Start">開始遊戲</button>
+            </section>
+            <section class="canvas">
+                <canvas width="400" height="400" id="Canvas_id"></canvas>
+            </section>
+            <section class="contorl">
+                <button id="left">Left</button>
+                <button id="Right">Right</button>
+            </section>
+        </div>
+    </div>
+
+
+
+    <script>
+        window.onload = onPageLoaded
+
+        function onPageLoaded() {
+            document.addEventListener('keydown', handleKeyDown)
+            document.getElementById("left").addEventListener('click', function () {
+                Left()
+            })
+            document.getElementById("Right").addEventListener('click', function () {
+                Right()
+            })
+        }
+
+        function Left() {
+            var originX = snake.direction.x;
+            var originY = snake.direction.y;
+            snake.direction.x = originY;
+            snake.direction.y = -originX;
+
+        }
+
+        function Right() {
+            var originX = snake.direction.x;
+            var originY = snake.direction.y;
+            snake.direction.x = -originY;
+            snake.direction.y = originX;
+        }
+
+        function handleKeyDown(event) {
+            var originX = snake.direction.x;
+            var originY = snake.direction.y;
+            if (event.keyCode == 37) {
+                snake.direction.x = originY;
+                snake.direction.y = -originX;
+            } else if (event.keyCode == 39) {
+                snake.direction.x = -originY;
+                snake.direction.y = originX;
+            }
+        }
+        document.getElementById("Start").addEventListener('click', function () {
+            gameStart();
+        })
+        //畫布
+        var Block_Size = 20;
+        var Block_Count = 20;
+        var gameIntervel;
+        var apple;
+        var score;
+
+        function gameStart() {
+
+            snake = {
+                body: [{
+                    x: Block_Count / 2,
+                    y: Block_Count / 2
+                }],
+                size: 5,
+                direction: {
+                    x: 0,
+                    y: -1
+                }
+            }
+            putApple()
+            updateScore(0)
+            gameIntervel = setInterval(gameRoutine, 150)
+        }
+
+        function updateScore(newScore) {
+            score = newScore
+            document.getElementById('Score_id').innerHTML = score
+        }
+
+        function putApple() {
+            apple = {
+                x: Math.floor(Math.random() * Block_Count),
+                y: Math.floor(Math.random() * Block_Count)
+            }
+            for (var i = 0; i < snake.body.length; i++) {
+                if (snake.body[i].x == apple.x && snake.body[i].y == apple.y) {
+                    putApple()
+                    break;
+                }
+            }
+        }
+
+        function gameRoutine() {
+            moveSnake()
+            if (snakeIsDead()) {
+                gameOver()
+                return
+            }
+            if (snake.body[0].x == apple.x && snake.body[0].y == apple.y) {
+                eatApple();
+            }
+            updateCanvas()
+
+        }
+
+        function eatApple() {
+            snake.size += 1;
+            putApple()
+            updateScore(score + 10)
+        }
+
+        function moveSnake() {
+            var newBlock = {
+                x: snake.body[0].x + snake.direction.x,
+                y: snake.body[0].y + snake.direction.y,
+            }
+            snake.body.unshift(newBlock)
+            while (snake.body.length > snake.size) {
+                snake.body.pop()
+            }
+        }
+
+        function snakeIsDead() {
+            //撞到牆
+            if (snake.body[0].x < 0) {
+                return true
+            } else if (snake.body[0].y < 0) {
+                return true
+            } else if (snake.body[0].x >= Block_Count) {
+                return true
+            } else if (snake.body[0].y >= Block_Count) {
+                return true
+            }
+            for (var i = 1; i < snake.body.length; i++) {
+                if (snake.body[0].x == snake.body[i].x && snake.body[0].y == snake.body[i].y) {
+                    return true
+                }
+            }
+
+            return false;
+        }
+
+        function gameOver() {
+            clearInterval(gameIntervel)
+        }
+
+        function updateCanvas() {
+            var Canvas = document.getElementById("Canvas_id")
+            var context = Canvas.getContext('2d')
+            context.fillStyle = 'black'
+            context.fillRect(0, 0, Canvas.width, Canvas.height)
+            context.lineWidth= 1 ;
+
+            context.fillStyle = 'lime'
+            for (var i = 0; i < snake.body.length; i++) {
+                context.fillRect(
+                    snake.body[i].x * Block_Size + 1,
+                    snake.body[i].y * Block_Size + 1,
+                    Block_Size - 1,
+                    Block_Size - 1
+                )
+            }
+
+
+            context.fillStyle = 'red'
+            context.fillRect(
+                apple.x * Block_Size + 1,
+                apple.y * Block_Size + 1,
+                Block_Size - 1,
+                Block_Size - 1
+            )
+            // context.fillStyle = "#FFE"; //填充顏色
+            // context.strokeStyle = "#26baee"; //填充邊框顏色
+            // context.lineWidth = 1; //邊框大小
+
+        }
+    </script>
+</body>
+
+</html>
