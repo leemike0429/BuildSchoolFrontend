@@ -41,9 +41,11 @@
             margin-top: 20px;
         }
     </style>
+    
 </head>
 
 <body>
+    
     <div class="row">
         <div class="container">
             <section class="txt">
@@ -126,7 +128,7 @@
             }
             putApple()
             updateScore(0)
-            gameIntervel = setInterval(gameRoutine, 150)
+            gameIntervel = setInterval(gameRoutine, 200)
         }
 
         function updateScore(newScore) {
@@ -199,6 +201,7 @@
 
         function gameOver() {
             clearInterval(gameIntervel)
+            alert("你輸了!請重新開始")
         }
 
         function updateCanvas() {
