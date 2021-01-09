@@ -39,7 +39,7 @@
             padding-top: 50px;
         }
 
-        .abc {
+        .operating {
             margin-left: 50px;
             margin-top: 50px;
         }
@@ -64,13 +64,37 @@
             letter-spacing: 3px;
             margin-bottom: 20px;
         }
+        #level
+        {
+            margin-bottom: 20px;
+            border-radius: 5px;
+            text-align: center;
+            border: 1.5px solid black;
+            font-size: 20px;
+        }
+        option
+        {
+            text-align: center;
+            
+        }
+        span
+        {
+            color:  red;
+        }
     </style>
 </head>
 
 <body>
     <div class="content">
         <div id="container"></div>
-        <div class="abc">
+        <div class="operating">
+            <!-- select 1 -->
+            <select id='level'>
+                <option value="-1">---請選擇難度---</option>
+                <option value="3">3x3</option>
+                <option value="4">4x4</option>
+                <option value="5">5x5</option>
+            </select>
             <div class="button">
                 <button id="btn-create">開始遊戲</button>
                 <!-- <button id="btn-reload">打亂</button> -->
@@ -89,20 +113,28 @@
         integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous">
     </script>
     <script>
-        window.onload = function () {
-            createBox(4)
-        }
         var times=0;
-
+        var levelValue=0
         document.getElementById("btn-create").addEventListener("click", function () {
-            messup(4)
-            moveBox(4)
+            setLevel()
+            createBox(levelValue)
+            messup(levelValue)
+            moveBox(levelValue)
 
         })
+        function setLevel()
+        {
+            levelValue=parseInt(document.getElementById("level").selectedOptions[0].value)
+            
+        }
 
         function createBox(num) {
+            var container = document.getElementById("container");
+            if(container!=null)
+            {
+                container.innerText = "";
+            }
             for (let i = 0; i < num * num; i++) {
-                let container = document.getElementById("container");
                 $(container).append("<div class='Box' id='Pic" + i + "'><img src='pic.png'></div>")
                 var row = parseInt(i / num);
                 var col = i % num;
@@ -180,8 +212,7 @@
                 else if (choose - 1 == white || choose + 1 == white || choose + num == white || choose - num ==
                     white) 
                 {
-                    dataChange(choose,white,temp1,array1)
-                    
+                    dataChange(choose,white,temp1,array1)                    
                 } 
                 else 
                 {
@@ -203,7 +234,7 @@
                 if (movearray[i].id == correctarray[i].id) {
                     a++
                     if (a == correctarray.length) {
-                        alert("youwin")
+                        setTimeout(function(){ alert("You Win!!"); }, 300);
                     }                    
                 } 
                 else {
@@ -211,12 +242,6 @@
                     return
                 }
             }
-            // if(!(a == correctarray.length))
-            // {
-            //     a=0;
-            // }
-            
-
         }
     </script>
 
