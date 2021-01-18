@@ -1,0 +1,141 @@
+
+.container
+{
+    max-width: 1200px;
+    margin: auto;
+}
+.row
+{
+    display: flex;
+    flex-wrap: wrap;
+}
+/* [class*="col-"]
+{
+    padding: 5px;box-sizing: border-box;
+} */
+#map {
+    height: 50vh;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+
+}
+.col-12.col-md-4
+{
+    padding: 0;
+}
+.col-12.col-md-8
+{
+    padding: 0;
+}
+
+#selectBox {
+    display: flex;
+    justify-content: center;
+}
+.abc{
+    position: sticky;
+    top:0;
+    left: 0;
+    z-index: 10;
+    background-color: #F9D654;
+    padding-bottom: 5px;
+}
+
+.content {
+    height: 50vh;
+    background-color: #F9D654;
+    overflow: auto;
+    position: relative;
+}
+
+
+h1 {
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+span {
+    font-size: 8px;
+}
+
+#TouristspotsCardBox {
+    padding-top: 10px;
+}
+.accordion-item {
+    background-color: white;
+    font-size: border;
+}
+#check
+{
+    margin-left: 5px;
+    
+}
+#buttontext
+{
+    color: black;
+    font-weight: bolder;
+    
+}
+
+
+    .col-1{width:8.333333%;}
+    .col-2{width:16.666666%;}
+    .col-3{width:25%;}
+    .col-4{width:33.333333%;}
+    .col-5{width:41.666666%;}
+    .col-6{width:50%;}
+    .col-7{width:58.333333%;}
+    .col-8{width:66.666666%;}
+    .col-9{width:75%;}
+    .col-10{width:83.333333%;}
+    .col-11{width:91.666666%;}
+    .col-12{width:100%;}
+@media screen and (min-width: 768px){
+
+    .col-md-1{width:8.333333%;}
+    .col-md-2{width:16.666666%;}
+    .col-md-3{width:25%;}
+    .col-md-4{width:33.333333%;}
+    .col-md-5{width:41.666666%;}
+    .col-md-6{width:50%;}
+    .col-md-7{width:58.333333%;}
+    .col-md-8{width:66.666666%;}
+    .col-md-9{width:75%;}
+    .col-md-10{width:83.333333%;}
+    .col-md-11{width:91.666666%;}
+    .col-md-12{width:100%;} 
+    .content {
+        height: 100vh;
+        background-color: #F9D654;
+        overflow: auto;
+    }
+    .mapBox {
+        margin-top: 30px;
+    }
+    #TouristspotsCardBox {
+        padding-top: 40px;
+    }
+    #map {
+        height: 90vh;
+    }
+    .col-12.col-md-4
+{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.col-12.col-md-8
+{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+}
